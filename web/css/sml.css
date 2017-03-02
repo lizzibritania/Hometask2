@@ -1,0 +1,8 @@
+div.center{ margin-left: 35%; margin-right: 35%;alignment: center;
+    border: dotted; background-color: aliceblue;font-family: "Comic Sans MS"}
+input.ok{background-color: cornflowerblue; font-family: "Comic Sans MS";
+    border-color: black; alignment: center;}
+div.foru{font-size: 10pt;font-family: "Comic Sans MS";text-decoration-color: sienna}
+h1{font-family: "Comic Sans MS";font-size: 10pt;alignment: center;}
+.centre{alignment: center;}
+input.longtext{ height: 200pt; width:90%;}
