@@ -28,6 +28,21 @@
         <servlet-name>Creation</servlet-name>
         <url-pattern>/Creation</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <description></description>
+        <display-name>CreateP</display-name>
+        <servlet-name>CreateP</servlet-name>
+        <servlet-class>CreateP</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateP</servlet-name>
+        <url-pattern>/CreateP</url-pattern>
+    </servlet-mapping>
+
+
     <welcome-file-list>
         <welcome-file>Main.jsp</welcome-file>
     </welcome-file-list>

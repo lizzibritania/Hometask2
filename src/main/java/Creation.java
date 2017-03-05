@@ -15,6 +15,10 @@ public class Creation extends HttpServlet {
         response.setContentType("text/html");
         String pass=request.getParameter("newpassword");
         String log=request.getParameter("newlogin");
+        if(Validation.checklogin(log)==true){
+            response.getWriter().println(log + ", login already exists " + "<a href = \"CreateLogin.jsp\"> Go back </a>");
+        }
+        else{
         String logps=log+" "+pass;
             Scanner lp = new Scanner(new File("C:/Hometask2/src/main/java/users.txt"));
         try (FileWriter writer = new FileWriter("C:/Hometask2/src/main/java/users.txt", true)) {
@@ -27,7 +31,7 @@ public class Creation extends HttpServlet {
                 response.getWriter().println(log+ ", your user is created"+"<a href = \"Main.jsp\"> Go login </a>" );}
 
 
-        }
+        }}
 
 
 

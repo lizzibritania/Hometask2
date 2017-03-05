@@ -9,9 +9,12 @@
     <form action="Validation" method="post">
         <p align="center"> Login:  </p>     <p align="center"> <input type="text" name="login">   </p>
         <br />
-        <p align="center">Password: </p>  <p align="center"> <input type="text" name="password" />    </p>
+        <p align="center">Password: </p>  <p align="center"> <input type="password" name="password" />    </p>
         <br>
+        <p > <input type="checkbox"name="cbox" /> Remember me </p>
+            <br>
         <p align="center"> <input class="ok" type="submit" value="Submit" />    </p>
+
     </form> </div>
 </body>
 </html>
