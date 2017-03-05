@@ -5,6 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -28,13 +33,18 @@ public class CreateP extends HttpServlet{
                 while (lp.hasNext()) {
                     String line = lp.nextLine();
                     pchecker=line.split(" ");
-
-
                     if (pchecker[0].equals(log)){
-                        pchecker[1]=pass;
-                        line=pchecker[0]+" "+pchecker[1];
-
-                writer.write("\n" + line);}}
+                    String fileName = "C:/Hometask2/src/main/java/users.txt";
+                    String search = pchecker[0]+" "+pchecker[1];
+                    pchecker[1]=pass;
+                    String replace = pchecker[0]+" "+pchecker[1];
+                    Charset charset = StandardCharsets.UTF_8;
+                    Path path = Paths.get(fileName);
+                    Files.write(path,
+                            new String(Files.readAllBytes(path), charset).replace(search, replace)
+                                    .getBytes(charset));
+                    break;
+                    }}
 
 
                 writer.flush();
