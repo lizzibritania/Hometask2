@@ -43,7 +43,6 @@ public class CreateP extends HttpServlet{
                     Files.write(path,
                             new String(Files.readAllBytes(path), charset).replace(search, replace)
                                     .getBytes(charset));
-                    break;
                     }}
 
 
