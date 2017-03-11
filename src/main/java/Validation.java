@@ -57,7 +57,9 @@ public class Validation  extends HttpServlet {
 
                      else {
                        session.setAttribute("pcount", 0);
-                       response.getWriter().println(log + ", your password is invalid" + "<a href = \"Main.jsp\"> Go back </a> <br>"+
+
+                       response.getWriter().println(log + ", your password is  invalid" + "<a href = \"Main.jsp\"> Go back </a> <br>"+
+
                                (5-Integer.parseInt(session.getAttribute("pcount").toString()))+" attempts remaining");
                    }
                  }
@@ -67,119 +69,5 @@ public class Validation  extends HttpServlet {
              }
 
      }
-
-
-
-
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-
-
-
-    public static boolean checkp(String login, String p) throws FileNotFoundException {
-
-        boolean answer=false;
-        Scanner lp = new Scanner(new File("C:/Hometask2/src/main/java/users.txt"));
-        String pchecker[]=new String[2];
-        while (lp.hasNext()) {
-            String line = lp.nextLine();
-            pchecker=line.split(" ");
-            if ((pchecker[0].equals(login))&&(pchecker[1].equals(p))){
-                answer=true;}}
-                return answer;
-    }
-
-        public static boolean checklogin(String login) {
-            int counter=0;
-            boolean check=false;
-            try {
-                Scanner scanner = new Scanner(new File("C:/Hometask2/src/main/java/users.txt"));
-                String loginchecker[]=new String[2];
-                int loginexists=1;
-                while (scanner.hasNext()) {
-                    String line = scanner.nextLine();
-                    loginchecker=line.split(" ");
-                    if (loginchecker[0].equals(login))
-                    { loginexists=0;
-                    }}
-                if (loginexists==1)
-                {check= false;}
-                else check=true;
-
-            } catch (FileNotFoundException e) {
-                System.out.println("File not found");
-            }
-         return check;
-        }
-
-
-    private static int prepareSessionCounter(
-
-            HttpSession session) {
-
-        Integer counter =
-
-                (Integer)session.getAttribute("counter");
-
-        if (counter == null) {
-
-            session.setAttribute("counter", 1);
-
-            return 1;
-
-        } else {
-
-            counter++;
-
-            session.setAttribute("counter", counter);
-
-            return counter;
-
-        }
-
-    }
-
-    private void print(PrintWriter out, HttpServletRequest request, HttpServletResponse response,HttpSession session ){
-
-    StringBuffer url = request.getRequestURL();
-
-            session.setAttribute("URL", url);
-
-            out.write("My session counter: ");
-
-
-            out.write(String.valueOf(prepareSessionCounter(session)));
-
-            out.write("<br> Creation Time : "
-
-                    + new Date(session.getCreationTime()));
-
-            out.write("<br> Time of last access : "
-
-                    + new Date(session.getLastAccessedTime()));
-
-            out.write("<br> session ID : "
-
-                    + session.getId());
-
-            out.write("<br> Your URL: " + url);
-
-    int timeLive = 60 * 30;
-
-            session.setMaxInactiveInterval(timeLive);
-
-            out.write("<br>Set max inactive interval : "
-
-                    + timeLive + "sec");
-
-            out.flush();
-
-            out.close();}
-}
-
-
 
 
